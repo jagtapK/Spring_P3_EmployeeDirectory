@@ -28,10 +28,19 @@ public class EmployeeController {
     }
 
     @GetMapping("/getAllEmployee")
-    public ResponseEntity<List<Employee>> getAllEmployee(){
+    public ResponseEntity<List<Employee>> getAllEmployee() {
         List<Employee> emplist = employeeService.getAllEmployee();
-        return new ResponseEntity<>(emplist,HttpStatus.OK);
+        return new ResponseEntity<>(emplist, HttpStatus.OK);
 
     }
 
+    @GetMapping("/getById/{id}")
+    public ResponseEntity<Employee> empById(@PathVariable int id) {
+        Employee employee = employeeService.getEmployeeById(id);
+        if (employee != null) {
+            return ResponseEntity.ok(employee);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
