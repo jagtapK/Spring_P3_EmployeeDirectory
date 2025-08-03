@@ -31,7 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee getEmployeeById(int id) {
 
         Employee empById = employeeRepository.findById(id).orElseThrow(()
-        -> new NullPointerException("Employee id is not found" + id));
+                -> new NullPointerException("Employee id is not found" + id));
         return empById;
     }
 }

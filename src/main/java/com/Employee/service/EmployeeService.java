@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface EmployeeService {
 
-public String saveEmployee(Employee employee);
+    public String saveEmployee(Employee employee);
 
-public List<Employee> getAllEmployee();
+    public List<Employee> getAllEmployee();
 
-public Employee getEmployeeById(int id);
+    public Employee getEmployeeById(int id);
 }
