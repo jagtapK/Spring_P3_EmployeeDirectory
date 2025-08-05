@@ -18,12 +18,10 @@ public class EmployeeController {
 
     @PostMapping("/addEmployees")
     public ResponseEntity<String> addEmployees(@RequestBody List<Employee> employees) {
-
         employees.forEach(employee -> {
             System.err.println(employee);
             employeeService.saveEmployee(employee);
         });
-
         return new ResponseEntity<>("All employee data saved", HttpStatus.CREATED);
     }
 
@@ -43,9 +41,16 @@ public class EmployeeController {
             return ResponseEntity.notFound().build();
         }
     }
+
     @GetMapping("/DeleteById/{id}")
-    public ResponseEntity<String> DeleteById(@PathVariable int id){
-      String emp =  employeeService.DeleteById(id);
-      return new ResponseEntity<>(emp,HttpStatus.OK);
+    public ResponseEntity<String> DeleteById(@PathVariable int id) {
+        String emp = employeeService.DeleteById(id);
+        return new ResponseEntity<>(emp, HttpStatus.OK);
+    }
+
+    @GetMapping("/updateById/{id}")
+    public ResponseEntity<Employee> UpdateById(@PathVariable int id, @RequestBody Employee employee) {
+        Employee emp = employeeService.UpdateById(id, employee);
+        return new ResponseEntity<>(emp, HttpStatus.OK);
     }
 }

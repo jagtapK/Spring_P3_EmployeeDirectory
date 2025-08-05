@@ -13,4 +13,6 @@ public interface EmployeeService {
     public Employee getEmployeeById(int id);
 
     public String DeleteById(int id);
+
+    Employee UpdateById(int id, Employee newDetails);
 }

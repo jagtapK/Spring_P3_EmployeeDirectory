@@ -40,4 +40,19 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.deleteById(id);
         return "Employee Deleted";
     }
+
+    @Override
+    public Employee UpdateById(int id, Employee newDetails) {
+        Employee emp = employeeRepository.findById(id).orElseThrow(()
+                ->new NullPointerException("Id is not found"+id));
+
+        emp.setfName(newDetails.getfName());
+        emp.setlName(newDetails.getlName());
+        emp.setGender(newDetails.getGender());
+        emp.setAge(newDetails.getAge());
+        emp.setSalary(newDetails.getSalary());
+
+        Employee employee = employeeRepository.save(emp);
+        return employee;
+    }
 }
