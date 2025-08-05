@@ -43,4 +43,9 @@ public class EmployeeController {
             return ResponseEntity.notFound().build();
         }
     }
+    @GetMapping("/DeleteById/{id}")
+    public ResponseEntity<String> DeleteById(@PathVariable int id){
+      String emp =  employeeService.DeleteById(id);
+      return new ResponseEntity<>(emp,HttpStatus.OK);
+    }
 }

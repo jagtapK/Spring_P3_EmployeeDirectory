@@ -34,4 +34,10 @@ public class EmployeeServiceImpl implements EmployeeService {
                 -> new NullPointerException("Employee id is not found" + id));
         return empById;
     }
+
+    @Override
+    public String DeleteById(int id) {
+        employeeRepository.deleteById(id);
+        return "Employee Deleted";
+    }
 }
