@@ -44,7 +44,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee UpdateById(int id, Employee newDetails) {
         Employee emp = employeeRepository.findById(id).orElseThrow(()
-                ->new NullPointerException("Id is not found"+id));
+                -> new NullPointerException("Id is not found" + id));
 
         emp.setfName(newDetails.getfName());
         emp.setlName(newDetails.getlName());
@@ -54,5 +54,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         Employee employee = employeeRepository.save(emp);
         return employee;
+    }
+
+    @Override
+    public void saveAllEmployee(List<Employee> employees) {
+        employeeRepository.saveAll(employees);
     }
 }

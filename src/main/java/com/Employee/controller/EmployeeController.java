@@ -53,4 +53,10 @@ public class EmployeeController {
         Employee emp = employeeService.UpdateById(id, employee);
         return new ResponseEntity<>(emp, HttpStatus.OK);
     }
+
+    @GetMapping("/SaveEmployee")
+    public ResponseEntity<String> saveAllEmployee(List<Employee> employees){
+        employeeService.saveAllEmployee(employees);
+        return new ResponseEntity<>("Employee details Saved",HttpStatus.OK);
+    }
 }

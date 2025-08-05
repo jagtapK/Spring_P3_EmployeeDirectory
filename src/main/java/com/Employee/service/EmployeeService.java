@@ -15,4 +15,6 @@ public interface EmployeeService {
     public String DeleteById(int id);
 
     Employee UpdateById(int id, Employee newDetails);
+
+public void saveAllEmployee(List<Employee> employees);
 }
